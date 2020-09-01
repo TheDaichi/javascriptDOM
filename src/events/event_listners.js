@@ -88,12 +88,20 @@ function handleSubmit2(event) {
   event.preventDefault();
   // query String
   // Content-type: application/x-www-form-urlencoded
-  const formData = new FormData(event.target);
+  const formData = new FormData(event.target); // Iterator
   const data = [...formData.entries()];
   const asString = data
     .map((x) => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`)
     .join('&');
   console.log(asString);
+  /**
+   * Alternative:
+   * * const asString = new URLSearchParams(formData).toString()
+   */
+
+  // JSON
+  const asJSON = JSON.stringify(Object.fromEntries(formData));
+  console.log(asJSON);
 }
 
 orderFrom.addEventListener('submit', handleSubmit2);
