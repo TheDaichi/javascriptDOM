@@ -39,7 +39,7 @@ export default {
       favicon: "assets/img/favicon.png",
     }),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: "async", 
+      defaultAttribute: "defer",
     }),
   ],
   stats: "minimal",
